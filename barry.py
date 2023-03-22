@@ -102,9 +102,12 @@ class SQLLogin:
 
        
 
-        login = self.login_entry.get()
+        #login = self.login_entry.get()
 
-        pw = self.password_entry.get()
+        #pw = self.password_entry.get()
+
+        login = 'Nolan_runnels1'
+        pw = 'MIS4322student'
 
  
 
@@ -135,10 +138,37 @@ class SQLLogin:
         )
 
  
-
+        # conect to server
         cn = pyodbc.connect(cn_str)
 
-        return
+        cursor = cn.cursor()  #creates a cursor
+        #a cursor is a space in memeory that holds abunch of records
+
+        cursor.execute('select * from School.dbo.Course') #grabbing the datavfrom that table
+
+        data = cursor.fetchall()
+        print(data)
+
+        
+
+        for course in data:
+            courseID = course[0]
+            title = course[1]
+            credits = course[2]
+            deptID = course[3]
+            
+            preList = {'CourseID': courseID, 'Title': title, 'Credits': credits, 'DeptID': deptID}
+            courseList.append(preList) #creates a list of dictionaries
+        
+        a = int(input("Enter Course ID: " ))
+
+        for dictionary in courseList:
+            if a == dictionary['CourseID']:
+                print(f'Title: {dictionary["Title"]}')
+                print(f'Credits: {dictionary["Credits"]}')
+                print(f'Dept ID: {dictionary["DeptID"]}')
+
+
 
  
 
