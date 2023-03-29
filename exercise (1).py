@@ -77,9 +77,9 @@ Laura		Norman		donette.foller@cox.net			ammie@corrio.com
 Nino		Olivotto	simona@morasca.com				francine_vocelka@vocelka.com
 
 '''
-cursor.execute('select First_Name, Last_Name, ci1.Email, ci2.Email from school.dbo.Person inner join school.dbo.contact_info as ci1 on Person.PersonID = ci1.PersonID and ci1.Email_Type = "Personal" inner join school.dbo.contact_info as ci2 on Person.PersonID = ci2.PersonID and ci2.Email_Type = "Work" ')
-data2 = cursor.fetchall()
-print(data2)
+#cursor.execute('select First_Name, Last_Name, ci1.Email, ci2.Email from school.dbo.Person inner join school.dbo.contact_info as ci1 on Person.PersonID = ci1.PersonID and ci1.Email_Type = "Personal" inner join school.dbo.contact_info as ci2 on Person.PersonID = ci2.PersonID and ci2.Email_Type = "Work" ')
+#data2 = cursor.fetchall()
+#print(data2)
 
 """ for row in data2:
     hire_date = row[3]
